@@ -1,0 +1,8 @@
+{
+  "KPlugin": {
+    "Description": "kdevllm",
+    "Name": "kdevllm"
+  },
+  "X-KDevelop-Category": "Global",
+  "X-KDevelop-Mode": "GUI"
+}
