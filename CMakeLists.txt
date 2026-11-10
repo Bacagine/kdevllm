@@ -1,30 +1,57 @@
-cmake_minimum_required(VERSION 3.16)
-
+cmake_minimum_required(VERSION 2.8.12)
 project(kdevllm)
 
-set(KF_MIN_VERSION "6.0.0")
+# --- Auto-detect KDevelop/Qt version ---
+# Priority: KDev6/Qt6 > KDev5/Qt5 > KDev4/Qt4
 
-find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
-set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
+find_package(KDevPlatform 6.0.0 QUIET)
+if(KDevPlatform_FOUND)
+    set(KDEVLLM_QT_VER 6)
+    set(KDEVLLM_KF_VER 6)
+    set(KDEVLLM_ABI_VER 64)
+    set(KDEVLLM_KDEV_VER "KDevelop 6 / Qt 6")
+    find_package(ECM REQUIRED NO_MODULE)
+    set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
+    include(KDEInstallDirs)
+    include(KDECMakeSettings)
+    include(KDECompilerSettings NO_POLICY_SCOPE)
+    include(ECMQtDeclareLoggingCategory)
+    find_package(KF6 REQUIRED COMPONENTS I18n KIO Parts TextEditor CoreAddons Wallet)
+    find_package(Qt6 REQUIRED COMPONENTS Core Widgets Network)
+else()
+    find_package(KDevPlatform 5.2.0 QUIET)
+    if(KDevPlatform_FOUND)
+        set(KDEVLLM_QT_VER 5)
+        set(KDEVLLM_KF_VER 5)
+        set(KDEVLLM_ABI_VER 40)
+        set(KDEVLLM_KDEV_VER "KDevelop 5 / Qt 5")
+        find_package(ECM REQUIRED NO_MODULE)
+        set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
+        include(KDEInstallDirs)
+        include(KDECMakeSettings)
+        include(KDECompilerSettings NO_POLICY_SCOPE)
+        include(ECMQtDeclareLoggingCategory)
+        set(CMAKE_CXX_STANDARD 17)
+        set(CMAKE_CXX_STANDARD_REQUIRED ON)
+        find_package(KF5 REQUIRED COMPONENTS I18n KIO Parts TextEditor CoreAddons Wallet)
+        find_package(Qt5 REQUIRED COMPONENTS Core Widgets Network)
+    else()
+        find_package(KDE4 REQUIRED)
+        set(KDEVLLM_QT_VER 4)
+        set(KDEVLLM_KF_VER 4)
+        set(KDEVLLM_ABI_VER 0)
+        set(KDEVLLM_KDEV_VER "KDevelop 4 / Qt 4")
+        include(${KDE4_USE_FILE})
+        find_package(KDevPlatform REQUIRED)
+        include_directories(${KDEVPLATFORM_INCLUDE_DIR})
+        # Enable C++11 so range-based for and auto work
+        if(CMAKE_COMPILER_IS_GNUCXX)
+            set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+        endif()
+    endif()
+endif()
 
-include(KDEInstallDirs)
-include(KDECMakeSettings)
-include(KDECompilerSettings NO_POLICY_SCOPE)
-include(ECMQtDeclareLoggingCategory)
-include(FeatureSummary)
+message(STATUS "kdevllm: building for ${KDEVLLM_KDEV_VER}")
 
-find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS
-  I18n
-)
-
-find_package(KDevPlatform 6.0 REQUIRED)
-
+add_definitions(-DKDEVLLM_QT_VER=${KDEVLLM_QT_VER})
 add_subdirectory(src)
-
-ecm_qt_install_logging_categories(
-  EXPORT KDEVLLM
-  FILE kdevllm.categories
-  DESTINATION "${KDE_INSTALL_LOGGINGCATEGORIESDIR}"
-)
-
-feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)

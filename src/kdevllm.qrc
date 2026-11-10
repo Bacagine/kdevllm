@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="/kdevllm">
+    <file>kdevllm.json</file>
+  </qresource>
+</RCC>

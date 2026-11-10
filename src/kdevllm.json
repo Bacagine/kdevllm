@@ -1,8 +1,15 @@
 {
   "KPlugin": {
-    "Description": "kdevllm",
-    "Name": "kdevllm"
+    "Description": "AI-powered code assistant (OpenAI, Anthropic, Ollama)",
+    "Description[pt_BR]": "Assistente de código com IA (OpenAI, Anthropic, Ollama)",
+    "Id": "kdevllm",
+    "License": "GPL",
+    "Name": "LLM Integration",
+    "Name[pt_BR]": "Integração com LLM",
+    "Version": "0.1",
+    "Authors": [{"Name": "Gustavo Bacagine", "Email": "gustavo.bacagine@protonmail.com"}]
   },
   "X-KDevelop-Category": "Global",
-  "X-KDevelop-Mode": "GUI"
+  "X-KDevelop-Mode": "GUI",
+  "X-KDevelop-Version": "1"
 }

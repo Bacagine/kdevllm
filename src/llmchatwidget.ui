@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>LLMChatWidgetBase</class>
+ <widget class="QWidget" name="LLMChatWidgetBase">
+  <property name="windowTitle"><string>AI Assistant</string></property>
+  <layout class="QVBoxLayout" name="mainLayout">
+   <property name="spacing"><number>4</number></property>
+   <property name="margin"><number>4</number></property>
+
+   <!-- Status bar -->
+   <item>
+    <layout class="QHBoxLayout">
+     <item>
+      <widget class="QLabel" name="labelStatus">
+       <property name="text"><string>Provider: —</string></property>
+       <property name="wordWrap"><bool>false</bool></property>
+      </widget>
+     </item>
+     <item>
+      <spacer>
+       <property name="orientation"><enum>Qt::Horizontal</enum></property>
+       <property name="sizeType"><enum>QSizePolicy::Expanding</enum></property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnSettings">
+       <property name="text"><string>Settings</string></property>
+       <property name="flat"><bool>true</bool></property>
+       <property name="maximumWidth"><number>80</number></property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+
+   <!-- Chat history -->
+   <item>
+    <widget class="QTextBrowser" name="chatHistory">
+     <property name="openExternalLinks"><bool>true</bool></property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+       <horstretch>0</horstretch><verstretch>3</verstretch>
+      </sizepolicy>
+     </property>
+    </widget>
+   </item>
+
+   <!-- Context buttons -->
+   <item>
+    <layout class="QHBoxLayout">
+     <item>
+      <widget class="QPushButton" name="btnSendFile">
+       <property name="text"><string>Send Current File</string></property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnSendSelection">
+       <property name="text"><string>Send Selection</string></property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnApply">
+       <property name="text"><string>Apply to Editor</string></property>
+       <property name="enabled"><bool>false</bool></property>
+      </widget>
+     </item>
+     <item>
+      <spacer>
+       <property name="orientation"><enum>Qt::Horizontal</enum></property>
+       <property name="sizeType"><enum>QSizePolicy::Expanding</enum></property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnClear">
+       <property name="text"><string>Clear</string></property>
+       <property name="flat"><bool>true</bool></property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+
+   <!-- Input area -->
+   <item>
+    <widget class="QPlainTextEdit" name="inputEdit">
+     <property name="placeholderText"><string>Ask anything about your code…</string></property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+       <horstretch>0</horstretch><verstretch>1</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="maximumHeight"><number>120</number></property>
+    </widget>
+   </item>
+
+   <!-- Send row -->
+   <item>
+    <layout class="QHBoxLayout">
+     <item>
+      <spacer>
+       <property name="orientation"><enum>Qt::Horizontal</enum></property>
+       <property name="sizeType"><enum>QSizePolicy::Expanding</enum></property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnSend">
+       <property name="text"><string>Send</string></property>
+       <property name="default"><bool>true</bool></property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+
+  </layout>
+ </widget>
+</ui>

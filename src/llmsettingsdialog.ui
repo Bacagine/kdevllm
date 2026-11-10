@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>LLMSettingsDialogBase</class>
+ <widget class="QDialog" name="LLMSettingsDialogBase">
+  <property name="windowTitle"><string>AI Assistant — Settings</string></property>
+  <property name="minimumWidth"><number>480</number></property>
+  <layout class="QVBoxLayout">
+
+   <!-- Provider tabs -->
+   <item>
+    <widget class="QTabWidget" name="tabWidget">
+
+     <!-- OpenAI tab -->
+     <widget class="QWidget" name="tabOpenAI">
+      <attribute name="title"><string>OpenAI (ChatGPT)</string></attribute>
+      <layout class="QVBoxLayout">
+       <item>
+        <widget class="QLabel" name="labelHelpOpenAI">
+         <property name="textFormat"><enum>Qt::RichText</enum></property>
+         <property name="wordWrap"><bool>true</bool></property>
+         <property name="text"><string>&lt;b&gt;OpenAI API Key&lt;/b&gt;&lt;br/&gt;Log in at platform.openai.com, then create an API key.</string></property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout">
+         <item>
+          <widget class="QPushButton" name="btnOpenBrowserOpenAI">
+           <property name="text"><string>Open platform.openai.com</string></property>
+          </widget>
+         </item>
+         <item><spacer><property name="orientation"><enum>Qt::Horizontal</enum></property></spacer></item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QFormLayout">
+         <item row="0" column="0">
+          <widget class="QLabel"><property name="text"><string>API Key:</string></property></widget>
+         </item>
+         <item row="0" column="1">
+          <layout class="QHBoxLayout">
+           <item>
+            <widget class="QLineEdit" name="editKeyOpenAI">
+             <property name="echoMode"><enum>QLineEdit::Password</enum></property>
+             <property name="placeholderText"><string>sk-…</string></property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QToolButton" name="btnShowOpenAI">
+             <property name="text"><string>Show</string></property>
+             <property name="checkable"><bool>true</bool></property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel"><property name="text"><string>Model:</string></property></widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="editModelOpenAI">
+           <property name="text"><string>gpt-4o</string></property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout">
+         <item>
+          <widget class="QPushButton" name="btnConnectOpenAI">
+           <property name="text"><string>Connect</string></property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnDisconnectOpenAI">
+           <property name="text"><string>Disconnect</string></property>
+           <property name="enabled"><bool>false</bool></property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="labelStatusOpenAI">
+           <property name="text"><string>Not connected</string></property>
+          </widget>
+         </item>
+         <item><spacer><property name="orientation"><enum>Qt::Horizontal</enum></property></spacer></item>
+        </layout>
+       </item>
+       <item><spacer><property name="orientation"><enum>Qt::Vertical</enum></property></spacer></item>
+      </layout>
+     </widget>
+
+     <!-- Anthropic tab -->
+     <widget class="QWidget" name="tabAnthropic">
+      <attribute name="title"><string>Anthropic (Claude)</string></attribute>
+      <layout class="QVBoxLayout">
+       <item>
+        <widget class="QLabel" name="labelHelpAnthropic">
+         <property name="textFormat"><enum>Qt::RichText</enum></property>
+         <property name="wordWrap"><bool>true</bool></property>
+         <property name="text"><string>&lt;b&gt;Anthropic API Key&lt;/b&gt;&lt;br/&gt;Log in at console.anthropic.com, then create an API key.</string></property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout">
+         <item>
+          <widget class="QPushButton" name="btnOpenBrowserAnthropic">
+           <property name="text"><string>Open console.anthropic.com</string></property>
+          </widget>
+         </item>
+         <item><spacer><property name="orientation"><enum>Qt::Horizontal</enum></property></spacer></item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QFormLayout">
+         <item row="0" column="0">
+          <widget class="QLabel"><property name="text"><string>API Key:</string></property></widget>
+         </item>
+         <item row="0" column="1">
+          <layout class="QHBoxLayout">
+           <item>
+            <widget class="QLineEdit" name="editKeyAnthropic">
+             <property name="echoMode"><enum>QLineEdit::Password</enum></property>
+             <property name="placeholderText"><string>sk-ant-…</string></property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QToolButton" name="btnShowAnthropic">
+             <property name="text"><string>Show</string></property>
+             <property name="checkable"><bool>true</bool></property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel"><property name="text"><string>Model:</string></property></widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="editModelAnthropic">
+           <property name="text"><string>claude-3-5-sonnet-20241022</string></property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout">
+         <item>
+          <widget class="QPushButton" name="btnConnectAnthropic">
+           <property name="text"><string>Connect</string></property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnDisconnectAnthropic">
+           <property name="text"><string>Disconnect</string></property>
+           <property name="enabled"><bool>false</bool></property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="labelStatusAnthropic">
+           <property name="text"><string>Not connected</string></property>
+          </widget>
+         </item>
+         <item><spacer><property name="orientation"><enum>Qt::Horizontal</enum></property></spacer></item>
+        </layout>
+       </item>
+       <item><spacer><property name="orientation"><enum>Qt::Vertical</enum></property></spacer></item>
+      </layout>
+     </widget>
+
+     <!-- Ollama tab -->
+     <widget class="QWidget" name="tabOllama">
+      <attribute name="title"><string>Ollama (local)</string></attribute>
+      <layout class="QVBoxLayout">
+       <item>
+        <widget class="QLabel" name="labelHelpOllama">
+         <property name="textFormat"><enum>Qt::RichText</enum></property>
+         <property name="wordWrap"><bool>true</bool></property>
+         <property name="text"><string>&lt;b&gt;Ollama — local AI, no account needed&lt;/b&gt;&lt;br/&gt;Install Ollama and pull a model, then connect below.</string></property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout">
+         <item>
+          <widget class="QPushButton" name="btnOpenBrowserOllama">
+           <property name="text"><string>Open ollama.com</string></property>
+          </widget>
+         </item>
+         <item><spacer><property name="orientation"><enum>Qt::Horizontal</enum></property></spacer></item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QFormLayout">
+         <item row="0" column="0">
+          <widget class="QLabel"><property name="text"><string>Endpoint:</string></property></widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="editEndpointOllama">
+           <property name="text"><string>http://localhost:11434</string></property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel"><property name="text"><string>Model:</string></property></widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="editModelOllama">
+           <property name="text"><string>codellama</string></property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout">
+         <item>
+          <widget class="QPushButton" name="btnConnectOllama">
+           <property name="text"><string>Test Connection</string></property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="labelStatusOllama">
+           <property name="text"><string>Not connected</string></property>
+          </widget>
+         </item>
+         <item><spacer><property name="orientation"><enum>Qt::Horizontal</enum></property></spacer></item>
+        </layout>
+       </item>
+       <item><spacer><property name="orientation"><enum>Qt::Vertical</enum></property></spacer></item>
+      </layout>
+     </widget>
+
+    </widget>
+   </item>
+
+   <!-- Active provider selector -->
+   <item>
+    <layout class="QFormLayout">
+     <item row="0" column="0">
+      <widget class="QLabel"><property name="text"><string>Active provider:</string></property></widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QComboBox" name="comboActiveProvider">
+       <item><property name="text"><string>OpenAI (ChatGPT)</string></property></item>
+       <item><property name="text"><string>Anthropic (Claude)</string></property></item>
+       <item><property name="text"><string>Ollama (local)</string></property></item>
+      </widget>
+     </item>
+    </layout>
+   </item>
+
+   <!-- Buttons -->
+   <item>
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="standardButtons"><set>QDialogButtonBox::Ok|QDialogButtonBox::Cancel</set></property>
+    </widget>
+   </item>
+
+  </layout>
+ </widget>
+</ui>

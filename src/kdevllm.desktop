@@ -1,0 +1,17 @@
+[Desktop Entry]
+Type=Service
+ServiceTypes=KDevelop/Plugin
+X-KDE-Library=kdevllm
+X-KDE-PluginInfo-Name=kdevllm
+X-KDE-PluginInfo-Author=Gustavo Bacagine
+X-KDE-PluginInfo-Email=gustavo.bacagine@protonmail.com
+X-KDE-PluginInfo-Version=0.1
+X-KDE-PluginInfo-License=GPL
+X-KDE-PluginInfo-EnabledByDefault=true
+X-KDevelop-Category=Global
+X-KDevelop-Mode=GUI
+X-KDevelop-Version=1
+Name=LLM Integration
+Name[pt_BR]=Integração com LLM
+Comment=AI-powered code assistant (OpenAI, Anthropic, Ollama)
+Comment[pt_BR]=Assistente de código com IA (OpenAI, Anthropic, Ollama)
